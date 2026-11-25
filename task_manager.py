@@ -39,21 +39,21 @@ def add_task():
     task = {
         "id" : f"A{next}",
         "title" : input("Enter the Task-Title : "),
-        "completed" : False
+        "status" : "[ Incomplete ]"
     }
     # Append the dictionary in the List
     tasks.append(task)
 
 # View Function Complete
 def view_tasks():
-    # checks if the list is empty or not
     if len(tasks) == 0:
         return print("\nThe List is Empty......!!!")
     else :
-        print("\n================= Tasks =================\n")
-        print("ID\t\tTitle\t\tCompleted")
-        for task in tasks:      # Un-Neccessary len(tasks) removed
-            print(f"[{task["id"]}]\t\t{task["title"]}\t\t{task["completed"]}")
+        print("\n","="*20," Tasks ","="*20,"\n")
+        print(f"{'ID':<15}{'Title':<20}{'Status':>15}")
+        print("-"*50)
+        for task in tasks:     
+            print(f"{task["id"]:<15}{task["title"]:<20}{task["status"]:>15}")
 
 
 # Completion Function complete
@@ -62,7 +62,7 @@ def complete_task():
     for task in tasks:
         # "Tasks are completed by task ID"--Done
         if task["id"].lower() == tas.lower():
-            task["completed"] = True
+            task["status"] = "[ Complete ]"
             return
     return print(f"Task ID : {tas.upper()} Not found.....")
 
@@ -81,8 +81,10 @@ def search_task():
     title = input("Enter the task Title to complete: ")
     for task in tasks:
         if task["title"].lower() == title.lower():
-            print("\n================= Task =================\n")
-            print(f"[{task["id"]}]\t{task["title"]}\t{task["completed"]}")
+            print("\n","="*20," Task ","="*20,"\n")
+            print(f"{'ID':<15}{'Title':<20}{'Status':>15}")
+            print("-"*50)
+            print(f"{task["id"]:<15}{task["title"]:<20}{task["status"]:>15}")
             return
     return print(f"Task title {title} Not found.....")
 
