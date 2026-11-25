@@ -23,6 +23,7 @@ This is my first Python project, developed to practise core Python concepts and 
 ```text
 Task-Manager/
 │
+├──Image/
 ├── TM_venv/
 ├── task_manager.py
 └── README.md
